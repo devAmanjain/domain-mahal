@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomainElite - Premium Domain Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .company-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Premium Domain Section */
+        .premium-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .premium-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .premium-domain {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 2rem;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            animation: bounceIn 1s ease-out 0.5s both;
+        }
+
+        .premium-domain:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .premium-image {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: zoomIn 1s ease-out 0.7s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Domain Grid */
+        .domains-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .domains-title {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .domain-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .domain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .domain-card:hover::before {
+            left: 100%;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .domain-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .domain-price {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .domain-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2.5rem;
+            }
+            
+            .premium-domain {
+                font-size: 1.5rem;
+                padding: 1.5rem 2rem;
+            }
+            
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="company-name">DomainElite</h1>
+        <p class="tagline">Your Gateway to Premium Digital Real Estate</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="about-title">About DomainElite</h2>
+        <p class="about-text">
+            We are a leading domain portfolio company specializing in premium, high-value domain names. 
+            With over a decade of experience in the digital real estate market, we curate and offer 
+            exceptional domain names that can elevate your brand and business to new heights. Our 
+            carefully selected portfolio includes brandable domains, keyword-rich names, and 
+            investment-grade digital assets perfect for startups, enterprises, and investors.
+        </p>
+    </section>
+
+    <!-- Premium Domain Section -->
+    <section class="premium-section">
+        <h2 class="premium-title">Featured Premium Domain</h2>
+        <div class="premium-domain">TechInnovate.com</div>
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+             alt="Premium Domain" class="premium-image">
+    </section>
+
+    <!-- Domains Grid Section -->
+    <section class="domains-section">
+        <h2 class="domains-title">Our Domain Portfolio</h2>
+        <div class="domains-grid">
+            <div class="domain-card" onclick="openModal('TechVault.com', '$25,000')">
+                <h3 class="domain-name">TechVault.com</h3>
+                <p class="domain-price">$25,000</p>
+                <p class="domain-description">Perfect for technology storage, security, or cryptocurrency platforms</p>
+            </div>
+            <div class="domain-card" onclick="openModal('SmartBiz.com', '$18,500')">
+                <h3 class="domain-name">SmartBiz.com</h3>
+                <p class="domain-price">$18,500</p>
+                <p class="domain-description">Ideal for intelligent business solutions and consulting services</p>
+            </div>
+            <div class="domain-card" onclick="openModal('CloudMaster.com', '$32,000')">
+                <h3 class="domain-name">CloudMaster.com</h3>
+                <p class="domain-price">$32,000</p>
+                <p class="domain-description">Premium domain for cloud computing and software services</p>
+            </div>
+            <div class="domain-card" onclick="openModal('DigitalEdge.com', '$28,750')">
+                <h3 class="domain-name">DigitalEdge.com</h3>
+                <p class="domain-price">$28,750</p>
+                <p class="domain-description">Cutting-edge domain for digital transformation companies</p>
+            </div>
+            <div class="domain-card" onclick="openModal('DataFlow.com', '$45,000')">
+                <h3 class="domain-name">DataFlow.com</h3>
+                <p class="domain-price">$45,000</p>
+                <p class="domain-description">Premium domain for data analytics and business intelligence</p>
+            </div>
+            <div class="domain-card" onclick="openModal('WebCraft.com', '$22,500')">
+                <h3 class="domain-name">WebCraft.com</h3>
+                <p class="domain-price">$22,500</p>
+                <p class="domain-description">Perfect for web development and design agencies</p>
+            </div>
+            <div class="domain-card" onclick="openModal('NeoTech.com', '$38,000')">
+                <h3 class="domain-name">NeoTech.com</h3>
+                <p class="domain-price">$38,000</p>
+                <p class="domain-description">Modern technology brand with massive potential</p>
+            </div>
+            <div class="domain-card" onclick="openModal('GrowthHub.com', '$26,500')">
+                <h3 class="domain-name">GrowthHub.com</h3>
+                <p class="domain-price">$26,500</p>
+                <p class="domain-description">Ideal for business growth and marketing platforms</p>
+            </div>
+            <div class="domain-card" onclick="openModal('InnovatePro.com', '$35,000')">
+                <h3 class="domain-name">InnovatePro.com</h3>
+                <p class="domain-price">$35,000</p>
+                <p class="domain-description">Professional innovation and consulting services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title">Inquire About <span id="modal-domain"></span></h2>
+            <form id="inquiry-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your interest in this domain..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@domainelite.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Domain Street, Digital City, DC 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <p><a href="#">Domain Sales</a></p>
+                <p><a href="#">Domain Valuation</a></p>
+                <p><a href="#">Domain Brokerage</a></p>
+                <p><a href="#">Investment Consulting</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <p><a href="#">Domain Blog</a></p>
+                <p><a href="#">Market Reports</a></p>
+                <p><a href="#">Investment Guide</a></p>
+                <p><a href="#">FAQ</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DomainElite. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentDomain = '';
+        let currentPrice = '';
+
+        function openModal(domain, price) {
+            currentDomain = domain;
+            currentPrice = price;
+            document.getElementById('modal-domain').textContent = domain;
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('inquiry-form').reset();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Thank you for your inquiry about ${currentDomain}! We will contact you soon.`);
+                closeModal();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Add scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.domain-card');
+            elements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Add floating animation to premium domain
+        const premiumDomain = document.querySelector('.premium-domain');
+        setInterval(() => {
+            premiumDomain.style.transform = 'translateY(-5px)';
+            setTimeout(() => {
+                premiumDomain.style.transform = 'translateY(0)';
+            }, 1000);
+        }, 3000);
+    </script>
+</body>
+</html>
